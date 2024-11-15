@@ -61,19 +61,11 @@ def main():
     # handler.save(train_data, 'train_data')
     # handler.save(test_data, 'test_data')
 
-    
-
-    
-    # test_string = 'This is a test string.'
-
-    # with open('val_data.pkl', 'wb') as f:
-    #     pickle.dump(test_string, f)
-
     # Create an instance of the model you want
     model = BaseModel(config)
     # model = ParallelModel2D(config)
 
-    trainer = ExampleTrainer(model, train_data, val_data, config)
+    trainer = ExampleTrainer(model, train_data, test_data, config)
 
     trainer.train()
 

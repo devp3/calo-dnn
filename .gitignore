@@ -33,3 +33,10 @@ MANIFEST
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+*.png
+*.csv
+*.log
+*.root
+*.pkl
+active_data/model/*

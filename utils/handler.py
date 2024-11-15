@@ -149,6 +149,7 @@ class Handler():
             'preprocessed_data': 'dataframe after all preprocessing',
             'train_data': 'data used for training',
             'test_data': 'data used for testing',
+            'val_data': 'data used for validation',
             'normalization_factors': 'normalization factors used to normalize the data',
             'history': 'history of the training process',
         }
