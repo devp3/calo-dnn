@@ -1,0 +1,8 @@
+# When a plotter tries to find a variable in the input dataframe, it may not
+# be able to find an exact string match between the user-given variable name
+# and the column name. 
+#
+# To make it easier for the user to specify which variables they want, 
+# the plotter will reference this yml file to look for alternative names for 
+# the variable when an identical match cannot be found. 
+

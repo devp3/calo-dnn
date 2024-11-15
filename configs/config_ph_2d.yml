@@ -1,0 +1,293 @@
+############################
+###     DATA SECTION     ###
+############################
+
+# features are the names of the input variables
+features:
+  - ph1_etas1
+  - ph1_etas2
+  - ph2_etas1
+  - ph2_etas2
+  - ph1_maxEcell_E
+  - ph2_maxEcell_E
+  - ph1_maxEcell_x
+  - ph2_maxEcell_x
+  - ph1_maxEcell_y
+  - ph2_maxEcell_y
+  - ph1_maxEcell_z
+  - ph2_maxEcell_z
+  - ph1_maxEcell_t
+  - ph2_maxEcell_t
+  - ph1_sinh_etas12
+  - ph2_sinh_etas12
+  - ph1_maxEcell_R
+  - ph2_maxEcell_R
+  - ph12_maxEcell_R
+  - ph1_diff_etas12
+  - ph2_diff_etas12
+  - ph12_diff_maxEcell_x
+  - ph12_diff_maxEcell_y
+  - ph12_diff_maxEcell_z
+  - ph1_dca
+  - ph2_dca
+  - ph1_eta
+  - ph2_eta
+  - ph1_phi
+  - ph2_phi
+  - dEta_ph
+  - ph1_phis1 # remove for 1D predictions
+  - ph1_phis2 # remove for 1D predictions
+  - ph2_phis1 # remove for 1D predictions
+  - ph2_phis2 # remove for 1D predictions
+  - ph1_pt
+  - ph2_pt
+  - ph1_E
+  - ph2_E
+  - ph1_f1
+  - ph1_f3
+  - ph2_f1
+  - ph2_f3
+  - PassTrig_g35_loose_g25_loose
+  - PassTrig_g35_medium_g25_medium
+  # - lifetime
+  # - signal_type
+  # - mass_point
+  - Hcand_M
+  - ph1_t_unblinded
+  - ph2_t_unblinded
+  
+# targets are the names of the output variables, i.e. the variables we 
+# want to predict
+targets:
+  - TV_x
+  - TV_y
+  - TV_z
+  - TV_R
+
+# ignore_train is a list of variables that overrides the features and targets
+# lists. Elements of ignore_train will still be loaded and preprocessed, but 
+# will be dropped before training. This has two primary use cases:
+# 1. If you want to use a variable as input for a composite variable, but not
+#    as an input to the model itself.
+# 2. If you want to load the variable to use it for plotting or analysis, but
+#    not for training.
+ignore_train:
+  # - ph1_pt
+  # - ph2_pt
+  # - ph1_E
+  # - ph2_E
+  - ph1_phi
+  - ph2_phi
+  - PassTrig_g35_loose_g25_loose
+  - PassTrig_g35_medium_g25_medium
+  - TV_x
+  - TV_y
+  - ph1_eta
+  - ph2_eta
+  # - dEta_ph # temp 4/2/23
+  # - ph12_maxEcell_R # temp 4/2/23
+  # - ph1_maxEcell_R # temp 4/2/23
+  # - ph2_maxEcell_R # temp 4/2/23
+  # - ph12_diff_maxEcell_x # temp 4/2/23
+  # - ph12_diff_maxEcell_y # temp 4/2/23
+  # - ph12_diff_maxEcell_z # temp 4/2/23
+  # - ph1_etas1   # temp
+  # - ph1_etas2   # temp
+  # - ph2_etas1   # temp
+  # - ph2_etas2   # temp
+  # - ph1_phis1 # temp 4/2/23
+  # - ph1_phis2 # temp 4/2/23
+  # - ph2_phis1 # temp 4/2/23
+  # - ph2_phis2 # temp 4/2/23
+  # - ph1_maxEcell_E # temp 4/2/23
+  # - ph2_maxEcell_E # temp 4/2/23
+  # - Hcand_M         # reconstructed mass of Z or Higgs
+  # - Zcand_M
+  # - ph1_t_unblinded
+  # - ph2_t_unblinded
+  # - lifetime
+  # - signal_type
+  # - mass_point
+  # - ph1_f1 # temp 4/2/23
+  # - ph1_f3 # temp 4/2/23
+  # - ph2_f1 # temp 4/2/23
+  # - ph2_f3 # temp 4/2/23
+  # - ph1_maxEcell_x # temp 4/2/23
+  # - ph2_maxEcell_x # temp 4/2/23
+  # - ph1_maxEcell_y # temp 4/2/23
+  # - ph2_maxEcell_y # temp 4/2/23
+
+input_shape: auto
+output_shape: auto
+
+cut_name: signal
+
+# fraction of original root data to load
+load_fraction: 0.99
+
+test_split: 0.8
+validation_split: 0.05
+
+# data_path is the path to the raw data file relative to main.py
+data_path: 
+  - ./data//output_Hino_925_2ns_ZeeZSM.root # all mass points 2ns
+  - ./data//output_Hino_925_10ns_ZeeZSM.root
+  - ./data//output_Hino_825_2ns_ZeeZSM.root # all mass points 2ns
+  - ./data//output_Hino_825_10ns_ZeeZSM.root
+  - ./data//output_Hino_775_2ns_ZeeZSM.root # all mass points 2ns
+  - ./data//output_Hino_775_10ns_ZeeZSM.root
+  - ./data//output_Hino_725_2ns_ZeeZSM.root # all mass points 2ns
+  - ./data//output_Hino_725_10ns_ZeeZSM.root
+  - ./data//output_Hino_625_2ns_ZeeZSM.root # all mass points 2ns
+  - ./data//output_Hino_625_20ns_ZeeZSM.root
+  - ./data//output_Hino_625_10ns_ZeeZSM.root
+  - ./data//output_Hino_525_50ns_ZeeZSM.root
+  - ./data//output_Hino_525_50ns_ZeeHSM.root
+  - ./data//output_Hino_525_2ns_ZeeZSM.root # all mass points 2ns
+  - ./data//output_Hino_525_2ns_ZeeHSM.root
+  - ./data//output_Hino_525_2ns_HyyZSM.root
+  - ./data//output_Hino_525_2ns_HyyHSM.root
+  - ./data//output_Hino_525_20ns_ZeeZSM.root
+  - ./data//output_Hino_525_20ns_ZeeHSM.root
+  - ./data//output_Hino_525_10ns_ZeeZSM.root
+  - ./data//output_Hino_525_10ns_ZeeHSM.root
+  - ./data//output_Hino_525_10ns_HyyZSM.root
+  - ./data//output_Hino_525_10ns_HyyHSM.root
+  - ./data//output_Hino_475_2ns_HyyHSM.root
+  - ./data//output_Hino_475_10ns_HyyHSM.root
+  - ./data//output_Hino_425_2ns_ZeeZSM.root # all mass points 2ns
+  - ./data//output_Hino_425_2ns_ZeeHSM.root
+  - ./data//output_Hino_425_2ns_HyyZSM.root
+  - ./data//output_Hino_425_2ns_HyyHSM.root
+  - ./data//output_Hino_425_20ns_ZeeZSM.root
+  - ./data//output_Hino_425_20ns_ZeeHSM.root
+  - ./data//output_Hino_425_10ns_ZeeZSM.root
+  - ./data//output_Hino_425_10ns_ZeeHSM.root
+  - ./data//output_Hino_425_10ns_HyyZSM.root
+  - ./data//output_Hino_425_10ns_HyyHSM.root
+  - ./data//output_Hino_375_2ns_HyyHSM.root
+  - ./data//output_Hino_375_10ns_HyyHSM.root  # stopped here making the fig
+  - ./data//output_Hino_325_50ns_ZeeZSM.root
+  - ./data//output_Hino_325_50ns_ZeeHSM.root
+  - ./data//output_Hino_325_2ns_ZeeZSM.root # first test # all mass points 2ns
+  - ./data//output_Hino_325_2ns_ZeeHSM.root
+  - ./data//output_Hino_325_2ns_HyyZSM.root
+  - ./data//output_Hino_325_2ns_HyyHSM.root
+  - ./data//output_Hino_325_20ns_ZeeZSM.root
+  - ./data//output_Hino_325_20ns_ZeeHSM.root
+  - ./data//output_Hino_325_20ns_HyyZSM.root
+  - ./data//output_Hino_325_20ns_HyyHSM.root
+  - ./data//output_Hino_325_10ns_ZeeZSM.root
+  - ./data//output_Hino_325_10ns_ZeeHSM.root
+  - ./data//output_Hino_325_10ns_HyyZSM.root
+  - ./data//output_Hino_325_10ns_HyyHSM.root
+  - ./data//output_Hino_275_2ns_HyyHSM.root
+  - ./data//output_Hino_275_20ns_HyyHSM.root
+  - ./data//output_Hino_275_10ns_HyyHSM.root
+  - ./data//output_Hino_225_50ns_HyyZSM.root
+  - ./data//output_Hino_225_50ns_HyyHSM.root
+  - ./data//output_Hino_225_2ns_ZeeZSM.root # first test # all mass points 2ns
+  - ./data//output_Hino_225_2ns_ZeeHSM.root
+  - ./data//output_Hino_225_2ns_HyyZSM.root
+  - ./data//output_Hino_225_2ns_HyyHSM.root
+  - ./data//output_Hino_225_20ns_ZeeZSM.root
+  - ./data//output_Hino_225_20ns_ZeeHSM.root
+  - ./data//output_Hino_225_20ns_HyyZSM.root
+  - ./data//output_Hino_225_20ns_HyyHSM.root
+  - ./data//output_Hino_225_10ns_ZeeZSM.root
+  - ./data//output_Hino_225_10ns_ZeeHSM.root
+  - ./data//output_Hino_225_10ns_HyyZSM.root
+  - ./data//output_Hino_225_10ns_HyyHSM.root
+  - ./data//output_Hino_175_2ns_ZeeZSM.root # first test # all mass points 2ns
+  - ./data//output_Hino_175_2ns_ZeeHSM.root
+  - ./data//output_Hino_175_2ns_HyyZSM.root
+  - ./data//output_Hino_175_2ns_HyyHSM.root
+  - ./data//output_Hino_175_20ns_ZeeZSM.root
+  - ./data//output_Hino_175_20ns_ZeeHSM.root
+  - ./data//output_Hino_175_20ns_HyyZSM.root
+  - ./data//output_Hino_175_20ns_HyyHSM.root
+  - ./data//output_Hino_175_10ns_ZeeZSM.root
+  - ./data//output_Hino_175_10ns_ZeeHSM.root
+  - ./data//output_Hino_175_10ns_HyyZSM.root
+  - ./data//output_Hino_175_10ns_HyyHSM.root
+  - ./data//output_Hino_135_50ns_ZeeZSM.root
+  - ./data//output_Hino_135_50ns_ZeeHSM.root
+  - ./data//output_Hino_135_50ns_HyyZSM.root
+  - ./data//output_Hino_135_50ns_HyyHSM.root
+  - ./data//output_Hino_135_2ns_ZeeZSM.root # first test # all mass points 2ns
+  - ./data//output_Hino_135_2ns_ZeeHSM.root
+  - ./data//output_Hino_135_2ns_HyyZSM.root
+  - ./data//output_Hino_135_2ns_HyyHSM.root
+  - ./data//output_Hino_135_20ns_ZeeZSM.root
+  - ./data//output_Hino_135_20ns_ZeeHSM.root
+  - ./data//output_Hino_135_20ns_HyyZSM.root
+  - ./data//output_Hino_135_20ns_HyyHSM.root
+  - ./data//output_Hino_135_10ns_ZeeZSM.root
+  - ./data//output_Hino_135_10ns_ZeeHSM.root
+  - ./data//output_Hino_135_10ns_HyyZSM.root
+  - ./data//output_Hino_135_10ns_HyyHSM.root
+  - ./data//output_Hino_100_2ns_ZeeZSM.root # first test # all mass points 2ns
+  - ./data//output_Hino_100_20ns_ZeeZSM.root
+  - ./data//output_Hino_100_10ns_ZeeZSM.root
+
+# if the data is stored below a branch in the root file, specify the branch name
+# NOTE: this currently only works for one superbranch
+superbranch: PreSel
+
+active_data_path: active_data         # should rename to active_data_dir
+active_plots_path: active_plots
+base_path: /Users/devanshu/neural-llp/
+archive_path: /Users/devanshu/neural-llp/archive/
+
+
+###############################
+###     NETWORK SECTION     ###
+###############################
+
+learning_rate: 0.001
+batch_size: 1000
+num_epochs: 50
+# num_iter_per_epoch: 60
+verbose_epochs: 1
+
+# Model compile parameters
+loss: mean_squared_error
+optimizer: adam
+metrics: 
+  - mean_squared_error
+  - mean_absolute_percentage_error
+  # - mean_absolute_error
+  - r_square
+run_eagerly: True
+
+# Model callback parameters
+callbacks:
+  - EarlyStopping:
+      monitor: loss
+      patience: 5
+      min_delta: 0.0001
+      verbose: 1
+      mode: min
+      restore_best_weights: True
+  # - ModelCheckpoint:
+  #     filepath: models/model.h5
+  #     monitor: val_loss
+  #     save_best_only: True
+  # - ReduceLROnPlateau:
+  #     monitor: val_loss
+  #     factor: 0.1
+  #     patience: 3
+  #     min_lr: 0.00001
+
+# how many digits should be displayed in the printed output
+display_precision: 4
+
+
+###########################
+###     PLOT SECTION    ###
+###########################
+
+pointing_bins:
+  lower: 0
+  upper: 800
+  step: 40
