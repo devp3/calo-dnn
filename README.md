@@ -12,3 +12,6 @@ The DNN consists of four hidden layers with 100, 100, 50, and 20 inputs with the
 
 The vertex resolution is greatly improved with the DNN as shown in the resolution. For vertex positions further away from the primary collision, the DNN localizes the SUSY particle decay vertex with a resolution of up to 90 mm compared to a resolution of 190 mm using the analytical method.
 ![plot](readme/DNN_vertex_resolution.png)
+
+
+**Note**: The network was developed by [Ben Lawrence-Sanderson](https://github.com/benjaminls/) with help and input from Dev Panchal, Tim Andeen, and the UT ATLAS research group.
