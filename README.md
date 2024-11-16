@@ -8,6 +8,7 @@ Localizing the production vertex of subatomic particles using the calorimeter co
 
 The motivation behind this DNN is to enhance the vertex-finding ability by improving the vertex resolution and also extending the vertex finding in three dimensions. The network is trained on simulated particle collision events containing a pair of photons or electrons producing from the decay of a long-lived SUSY particle. The input features for the network are a collection of low- and high-level variables derived from the calorimeter signals. 
 
-The DNN consists of four hidden layers with 100, 100, 50, and 20 inputs with the architecture shown [here](./model.png). 
+The DNN consists of four hidden layers with 100, 100, 50, and 20 inputs with the architecture: shown [here](readme/model.png). 
 
-The vertex resolution is greatly improved with the DNN as shown in the resolution [plot](readme/DNN_vertex_resolution.png). For vertex positions further away from the primary collision, the DNN localizes the SUSY particle decay vertex with a resolution of up to 90 mm compared to a resolution of 190 mm using the analytical method.
+The vertex resolution is greatly improved with the DNN as shown in the resolution. For vertex positions further away from the primary collision, the DNN localizes the SUSY particle decay vertex with a resolution of up to 90 mm compared to a resolution of 190 mm using the analytical method.
+![plot](readme/DNN_vertex_resolution.png)
